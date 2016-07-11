@@ -21,8 +21,9 @@ public class IApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //初始化网络请求
+        //okhttpFinal初始化网络请求
         initOkHttpFinal();
+        //xUtils初始化网络请求
         x.Ext.init(this);
         x.Ext.setDebug(BuildConfig.DEBUG); // 是否输出debug日志, 开启debug会影响性能.
     }
