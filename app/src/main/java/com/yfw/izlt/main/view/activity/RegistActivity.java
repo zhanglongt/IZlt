@@ -155,6 +155,7 @@ public class RegistActivity extends BaseActivity implements IRegisterView{
     @Override
     public void toMainManagerActivity(MUser user) {
             if(user.getResult().equals("right")){
+
                 new Toasttool().MyToast(x.app(),"注册成功");
             }else {
                 new Toasttool().MyToast(x.app(),"手机号已注册");
