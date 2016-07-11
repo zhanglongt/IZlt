@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yfw.izlt.main.view.activity.RegistActivity">
+    <include
+        layout="@layout/include_common"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        />
+    <RelativeLayout
+        android:layout_marginTop="@dimen/account_set_height1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/gray"
+            android:textSize="@dimen/account_set_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号："
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/editText"
+            android:layout_toStartOf="@+id/editText"
+            android:layout_marginRight="@dimen/account_set_width1" />
+        <EditText
+            android:textSize="@dimen/account_set_text1"
+            android:textColor="@color/gray"
+            android:layout_marginRight="@dimen/account_set_width3"
+            android:layout_width="@dimen/account_set_width2"
+            android:layout_height="@dimen/account_set_height2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bg_edittext_account"
+            android:id="@+id/editText" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="@dimen/account_set_height3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/gray"
+            android:textSize="@dimen/account_set_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="密码："
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/editText1"
+            android:layout_toStartOf="@+id/editText1"
+            android:layout_marginRight="@dimen/account_set_width1" />
+        <EditText
+            android:textSize="@dimen/account_set_text1"
+            android:textColor="@color/gray"
+            android:layout_marginRight="@dimen/account_set_width3"
+            android:layout_width="@dimen/account_set_width2"
+            android:layout_height="@dimen/account_set_height2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bg_edittext_account"
+            android:id="@+id/editText1" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/account_set_height3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/gray"
+            android:textSize="@dimen/account_set_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确认密码："
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/editText2"
+            android:layout_toStartOf="@+id/editText2"
+            android:layout_marginRight="@dimen/account_set_width1" />
+        <EditText
+            android:textSize="@dimen/account_set_text1"
+            android:textColor="@color/gray"
+            android:layout_marginRight="@dimen/account_set_width3"
+            android:layout_width="@dimen/account_set_width2"
+            android:layout_height="@dimen/account_set_height2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bg_edittext_account"
+            android:id="@+id/editText2" />
+    </RelativeLayout>
+
+    <Button
+        android:layout_marginTop="@dimen/account_set_height4"
+        android:layout_gravity="center"
+        android:id="@+id/submitID"
+        android:layout_width="@dimen/account_set_width4"
+        android:layout_height="@dimen/account_set_height5"
+        android:background="@drawable/button_selector"
+        android:text="注册"
+        android:textSize="@dimen/account_set_text"
+        android:textColor="@color/white"/>
+</LinearLayout>
