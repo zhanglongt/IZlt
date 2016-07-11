@@ -1,8 +1,8 @@
 package com.yfw.izlt.main.presenter;
 import com.yfw.izlt.main.model.bean.MUser;
-import com.yfw.izlt.main.model.biz.Interface.IMUserBiz;
+import com.yfw.izlt.main.model.biz.Interface.IMLUserBiz;
 import com.yfw.izlt.main.model.biz.Interface.OnLoginListener;
-import com.yfw.izlt.main.model.biz.MUserBiz;
+import com.yfw.izlt.main.model.biz.MLUserBiz;
 import com.yfw.izlt.main.view.Interface.ILoginView;
 
 /**
@@ -10,14 +10,14 @@ import com.yfw.izlt.main.view.Interface.ILoginView;
  */
 public class LoginPresenter {
       private ILoginView iLoginView;
-      private IMUserBiz imUserBiz;
+      private IMLUserBiz IMLUserBiz;
 
     public LoginPresenter(ILoginView iLoginView) {
         this.iLoginView = iLoginView;
-        imUserBiz=new MUserBiz();
+        IMLUserBiz =new MLUserBiz();
     }
     public void Login(){
-        imUserBiz.login(iLoginView.getUserPhone(), iLoginView.getPassword(), new OnLoginListener() {
+        IMLUserBiz.login(iLoginView.getUserPhone(), iLoginView.getPassword(), new OnLoginListener() {
             @Override
             public void loginSuccess(MUser user) {
                 iLoginView.toMainManagerActivity(user);

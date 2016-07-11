@@ -19,6 +19,31 @@
             android:textSize="@dimen/account_set_text1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="用户名："
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/editName"
+            android:layout_toStartOf="@+id/editName"
+            android:layout_marginRight="@dimen/account_set_width1" />
+        <EditText
+            android:textSize="@dimen/account_set_text1"
+            android:textColor="@color/gray"
+            android:layout_marginRight="@dimen/account_set_width3"
+            android:layout_width="@dimen/account_set_width2"
+            android:layout_height="@dimen/account_set_height2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bg_edittext_account"
+            android:id="@+id/editName" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="@dimen/account_set_height3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/gray"
+            android:textSize="@dimen/account_set_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="手机号："
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/editText"

@@ -14,6 +14,8 @@ import com.yfw.izlt.R;
 import com.yfw.izlt.common.Constants;
 import com.yfw.izlt.common.Toasttool;
 import com.yfw.izlt.main.model.bean.MUser;
+import com.yfw.izlt.main.presenter.RegisterPresenter;
+import com.yfw.izlt.main.view.Interface.IRegisterView;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -28,10 +30,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 @ContentView(R.layout.activity_regist)
-public class RegistActivity extends BaseActivity{
+public class RegistActivity extends BaseActivity implements IRegisterView{
 //    private TextView tvCommonTitle;
 //    private ImageView ivBack;
 //    private EditText phone,password,rePassword;
+    @ViewInject(R.id.editName)
+    private EditText userName;
     @ViewInject(R.id.tvCommonTitle)
     private TextView tvCom;
     @ViewInject(R.id.editText)
@@ -40,6 +44,7 @@ public class RegistActivity extends BaseActivity{
     private EditText password;
     @ViewInject(R.id.editText2)
     private EditText rePassword;
+    private RegisterPresenter registerPresenter=new RegisterPresenter(this);
 
     @Event(value = {R.id.ivBack,R.id.submitID})
     private void getClick(View view){
@@ -48,7 +53,8 @@ public class RegistActivity extends BaseActivity{
               finish();
                break;
            case R.id.submitID:
-               regist();
+              // regist();
+               registerPresenter.register();
                break;
            default:
                break;
@@ -131,4 +137,32 @@ public class RegistActivity extends BaseActivity{
         });
     }
 
+    @Override
+    public String getUserPhone() {
+        return phone.getText().toString();
+    }
+
+    @Override
+    public String getUserPassword() {
+        return password.getText().toString();
+    }
+
+    @Override
+    public String getUserName() {
+        return userName.getText().toString();
+    }
+
+    @Override
+    public void toMainManagerActivity(MUser user) {
+            if(user.getResult().equals("right")){
+                new Toasttool().MyToast(x.app(),"注册成功");
+            }else {
+                new Toasttool().MyToast(x.app(),"手机号已注册");
+            }
+    }
+
+    @Override
+    public void showFailedError() {
+             new Toasttool().MyToast(x.app(),"网络连接失败");
+    }
 }
