@@ -70,7 +70,6 @@ public class DragLayout extends FrameLayout {
 	
 	ViewDragHelper.Callback mCallback = new ViewDragHelper.Callback() {
 		// c. 重写事件
-		
 		// 1. 根据返回结果决定当前child是否可以拖拽
 		// child 当前被拖拽的View
 		// pointerId 区分多点触摸的id
@@ -78,7 +77,7 @@ public class DragLayout extends FrameLayout {
 		public boolean tryCaptureView(View child, int pointerId) {
 			Log.d(TAG, "tryCaptureView: " + child);
 			return true;
-		};
+		}
 		
 		@Override
 		public void onViewCaptured(View capturedChild, int activePointerId) {
@@ -158,7 +157,6 @@ public class DragLayout extends FrameLayout {
 			}else {
 				close();
 			}
-			
 		}
 
 		@Override

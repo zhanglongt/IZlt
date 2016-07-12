@@ -22,12 +22,13 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
+    compile project(':mylib')
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'cn.finalteam:okhttpfinal:2.0.7'
-    compile project(':mylib')
     compile 'org.xutils:xutils:3.3.36'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.8.0'
     compile 'com.fasterxml.jackson.core:jackson-core:2.8.0'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.8.0'
     compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.android.support:support-v4:24.0.0'
 }

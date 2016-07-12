@@ -23,9 +23,11 @@
             android:src="@drawable/head" />
 
         <ListView
+            android:layout_marginTop="40dp"
             android:id="@+id/lv_left"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:entries="@array/menus">
         </ListView>
     </LinearLayout>
 
@@ -50,11 +52,12 @@
             android:visibility="visible"
             android:layout_centerVertical="true" />
         <TextView
+            android:id="@+id/mainTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="5dip"
-            android:text="主页"
+            android:text="首页"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/titleBar_text"
             android:layout_centerVertical="true"
@@ -71,11 +74,49 @@
             android:layout_marginRight="@dimen/activity_titleBar_leftRight"
             android:background="@drawable/search_btn" />
     </RelativeLayout>
-        <ListView
-            android:id="@+id/lv_main"
+        <FrameLayout
+            android:id="@+id/include"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-        </ListView>
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <!--<ListView-->
+            <!--android:id="@+id/lv_main"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" >-->
+        <!--</ListView>-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1px"
+            android:background="@color/white1"
+            android:visibility="visible"
+            />
+        <RadioGroup
+            android:id="@+id/main_tab_group"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingTop="0.1dip" >
+
+            <RadioButton
+                android:id="@+id/btnHomeID"
+                style="@style/MyTabButton"
+                android:checked="true"
+                android:text="首页"
+                android:gravity="center" />
+
+            <RadioButton
+                android:id="@+id/btnClassID"
+                style="@style/MyTabButton"
+                android:text="分类"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:id="@+id/btnFindID"
+                style="@style/MyTabButton"
+                android:text="发现"
+                android:gravity="center"/>
+        </RadioGroup>
     </com.yfw.izlt.main.view.view.MyLinearLayout>
 
 

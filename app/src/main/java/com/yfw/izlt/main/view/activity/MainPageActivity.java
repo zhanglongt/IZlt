@@ -1,10 +1,20 @@
 package com.yfw.izlt.main.view.activity;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.CycleInterpolator;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
 
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -13,6 +23,9 @@ import com.yfw.izlt.BaseActivity;
 import com.yfw.izlt.R;
 import com.yfw.izlt.common.SaveDatas;
 import com.yfw.izlt.common.Utils;
+import com.yfw.izlt.main.view.fragment.ClassFragment;
+import com.yfw.izlt.main.view.fragment.FindFragment;
+import com.yfw.izlt.main.view.fragment.HomeFragment;
 import com.yfw.izlt.main.view.view.DragLayout;
 import com.yfw.izlt.main.view.view.MyLinearLayout;
 
@@ -20,23 +33,47 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @ContentView(R.layout.activity_main_page)
-public class MainPageActivity extends BaseActivity {
+public class MainPageActivity extends BaseActivity implements View.OnClickListener,AdapterView.OnItemClickListener{
+    //左侧资源
+    private String leftArr[];
     @ViewInject(R.id.lv_left)
     private ListView mLeftList;
-    @ViewInject(R.id.lv_main)
-    private ListView mMainList;
     @ViewInject(R.id.mImage)
     private ImageView mHeaderImage;
+    @ViewInject(R.id.mainTitle)
+    private TextView mainTitle;
     @ViewInject(R.id.mll)
     private MyLinearLayout mLinearLayout;
     // 查找Draglayout, 设置监听
     @ViewInject(R.id.dl)
     private DragLayout mDragLayout;
+
+    /**  定义首页、分类、发现 的fragment页面 */
+    private HomeFragment homeFragment;
+    private ClassFragment classFragment;
+    private FindFragment findFragment;
+
+    /**  定义首页、分类、发现 的Tab图标 */
+    @ViewInject(R.id.btnHomeID)
+    private RadioButton btnHomeID;
+    @ViewInject(R.id.btnClassID)
+    private RadioButton btnClassID;
+    @ViewInject(R.id.btnFindID)
+    private RadioButton btnFindID;
+
+    /** 对Fragment进行管理  */
+    private FragmentManager fragmentManager;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main_page);
+        fragmentManager=getSupportFragmentManager();
         mHeaderImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,8 +86,8 @@ public class MainPageActivity extends BaseActivity {
             @Override
             public void onClose() {
                 Utils.showToast(x.app(), "onClose");
-               // 让图标晃动
-//				mHeaderImage.setTranslationX(translationX)
+                // 让图标晃动
+                // mHeaderImage.setTranslationX(translationX)
                 ObjectAnimator mAnim = ObjectAnimator.ofFloat(mHeaderImage, "translationX", 15.0f);
                 mAnim.setInterpolator(new CycleInterpolator(4));
                 mAnim.setDuration(500);
@@ -67,5 +104,115 @@ public class MainPageActivity extends BaseActivity {
                 ViewHelper.setAlpha(mHeaderImage, 1 - percent);
             }
         });
+        //页面点击
+        btnHomeID.setOnClickListener(this);
+        btnClassID.setOnClickListener(this);
+        btnFindID.setOnClickListener(this);
+
+        //左侧设置
+        leftArr=getResources().getStringArray(R.array.menus);
+        mLeftList.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,leftArr){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView mText = ((TextView)view);
+                mText.setTextColor(Color.WHITE);
+                return view;
+            }
+        });
+        mLeftList.setOnItemClickListener(this);
+    }
+
+    /**  隐藏所有的fragment*/
+    private void hideFragment(FragmentTransaction transaction){
+        if(homeFragment !=null){
+            transaction.hide(homeFragment);
+        }
+        if(classFragment !=null){
+            transaction.hide(classFragment);
+        }
+        if(findFragment !=null){
+            transaction.hide(findFragment);
+        }
+    }
+    /** 设置开启的tab首页页面 */
+    private void mHomeFragment(){
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        hideFragment(transaction);
+        if(homeFragment==null){
+            homeFragment=new HomeFragment();
+            transaction.add(R.id.include,homeFragment);
+        }else {
+            transaction.show(homeFragment);
+        }
+        transaction.commitAllowingStateLoss();
+
+
+    }
+    /** 设置开启的tab分类页面 */
+    private void mClassFragment(){
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        hideFragment(transaction);
+        if(classFragment==null){
+            classFragment=new ClassFragment();
+            transaction.add(R.id.include,classFragment);
+        }else {
+            transaction.show(classFragment);
+        }
+        transaction.commitAllowingStateLoss();
+
+    }
+    /** 设置开启的tab发现页面 */
+    private void mFindFragment(){
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        hideFragment(transaction);
+        if(findFragment==null){
+            findFragment=new FindFragment();
+            transaction.add(R.id.include,findFragment);
+        }else {
+            transaction.show(findFragment);
+        }
+        transaction.commitAllowingStateLoss();
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btnHomeID:
+                mHomeFragment();
+                mainTitle.setText("首页");
+                break;
+            case R.id.btnClassID:
+                mClassFragment();
+                mainTitle.setText("分类");
+                break;
+            case R.id.btnFindID:
+                mFindFragment();
+                mainTitle.setText("发现");
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        String data=  mLeftList.getItemAtPosition(i).toString();
+        Log.i("ii","data:"+data+":::"+i);
+        switch (i){
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2://注销
+                SaveDatas.getInstance(x.app()).delete("keyId");
+                startActivity(new Intent(MainPageActivity.this,LoginActivity.class));
+                finish();
+                break;
+            default:
+                break;
+        }
+
     }
 }

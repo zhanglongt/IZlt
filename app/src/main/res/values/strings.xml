@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">IZlt</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="menus">
+        <item>图片</item>
+        <item>收藏</item>
+        <item>注销</item>
+    </string-array>
 </resources>
