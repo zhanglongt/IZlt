@@ -26,103 +26,11 @@
     <dimen name="unLogin_width1">3dp</dimen>
     <dimen name="unLogin_text_size1">14dp</dimen>
     <!-- 主页面-->
-    <!--<dimen name="main_size1">5dp</dimen>-->
-    <!--<dimen name="main_size2">14dp</dimen>-->
-    <!--<dimen name="main_size3">18dp</dimen>-->
-    <!--<dimen name="main_size4">36dp</dimen>-->
-    <!--<dimen name="main_size5">15dp</dimen>-->
-    <!--<dimen name="main_size6">47.5dp</dimen>-->
-    <!--<dimen name="main_size7">105dp</dimen>-->
-    <!--<dimen name="main_size8">45dp</dimen>-->
     <dimen name="main_text_size1">20sp</dimen>
 
-    <dimen name="main_height1">5dp</dimen>
-    <dimen name="main_height2">18dp</dimen>
-    <dimen name="main_height3">36dp</dimen>
-    <dimen name="main_height4">15dp</dimen>
-    <dimen name="main_height5">45dp</dimen>
-    <dimen name="main_width1">14dp</dimen>
-    <dimen name="main_width2">47.5dp</dimen>
-    <dimen name="main_width3">105dp</dimen>
+    <dimen name="main_height1">30dp</dimen>
 
-    <!--库存-->
-    <dimen name="stock_text_size">14sp</dimen>
-    <dimen name="stock_text_size1">16sp</dimen>
-    <dimen name="stock_spacing_width">5dp</dimen>
-    <dimen name="stock_spacing_width1">40dp</dimen>
-    <dimen name="stock_spacing_width2">65dp</dimen>
-    <dimen name="stock_spacing_width3">90dp</dimen>
-    <dimen name="stock_spacing_width4">70dp</dimen>
-    <dimen name="stock_spacing_width5">60dp</dimen>
-    <dimen name="stock_spacing_width6">45dp</dimen>
-    <dimen name="stock_spacing_width7">132dp</dimen>
-    <dimen name="stock_spacing_width8">70dp</dimen>
-    <dimen name="stock_spacing_width9">96dp</dimen>
-    <dimen name="stock_spacing_height">10dp</dimen>
-    <dimen name="stock_spacing_height1">36dp</dimen>
-    <dimen name="stock_spacing_height2">44dp</dimen>
-    
-    <!--货品查询-->
-    <dimen name="goods_inquiry_width">4dp</dimen>
-    <dimen name="goods_inquiry_width1">18dp</dimen>
-    <dimen name="goods_inquiry_width2">110dp</dimen>
-    <dimen name="goods_inquiry_height">14dp</dimen>
-    <dimen name="goods_inquiry_height1">36dp</dimen>
-    <dimen name="goods_inquiry_height2">20dp</dimen>
-    <dimen name="goods_inquiry_height3">40dp</dimen>
-    <dimen name="goods_inquiry_btn_width">50dp</dimen>
-    <dimen name="goods_inquiry_btn_width3">25dp</dimen>
-    <dimen name="goods_inquiry_btn_width1">80dp</dimen>
-    <dimen name="goods_inquiry_btn_width2">180dp</dimen>
-    <dimen name="goods_inquiry_btn_height">40dp</dimen>
-    <dimen name="goods_inquiry_text">14sp</dimen>
-    <dimen name="goods_inquiry_text1">16sp</dimen>
-
-    <!--货品查询0  未加height的为width-->
-    <dimen name="goods_inquiry">10dp</dimen>
-    <dimen name="goods_inquiry1">5dp</dimen>
-    <dimen name="goods_inquiry2">40dp</dimen>
-    <dimen name="goods_inquiry3">65dp</dimen>
-    <dimen name="goods_inquiry4">90dp</dimen>
-    <dimen name="goods_inquiry5">70dp</dimen>
-    <dimen name="goods_inquiry6">60dp</dimen>
-    <dimen name="goods_inquiry7">45dp</dimen>
-    <dimen name="goods_inquiry8">132dp</dimen>
-    <dimen name="goods_inquiry9">36dp</dimen>
-    <!--<dimen name="goods_inquiry10">44dp</dimen>-->
-
-    <dimen name="goods_inquiry_height01">44dp</dimen>
-
-    <!--开单查询0-->
-    <dimen name="bill_inquery">134dp</dimen>
-    <dimen name="bill_inquery1">130dp</dimen>
-    <dimen name="bill_inquery2">70dp</dimen>
-    <dimen name="bill_inquery3">50dp</dimen>
-    <dimen name="bill_inquery4">45dp</dimen>
-    <dimen name="bill_inquery5">90dp</dimen>
-    <dimen name="bill_inquery6">64dp</dimen>
-    <dimen name="bill_inquery7">60dp</dimen>
-
-
-    <!-- 设置页面0-->
-    <!--<dimen name="set_main">15dp</dimen>-->
-    <!--<dimen name="set_main1">48dp</dimen>-->
-    <!--<dimen name="set_main2">20dp</dimen>-->
-    <!--<dimen name="set_main3">24dp</dimen>-->
-    <!--<dimen name="set_main4">130dp</dimen>-->
-    <!--<dimen name="set_main5">340dp</dimen>-->
-    <!--<dimen name="set_main6">18dp</dimen>-->
-    <dimen name="set_main_text">18sp</dimen>
-    <dimen name="set_main_height1">15dp</dimen>
-    <dimen name="set_main_height2">48dp</dimen>
-    <dimen name="set_main_height3">20dp</dimen>
-    <dimen name="set_main_height4">130dp</dimen>
-
-    <dimen name="set_main_width1">15dp</dimen>
-    <dimen name="set_main_width2">24dp</dimen>
-    <dimen name="set_main_width3">340dp</dimen>
-    <dimen name="set_main_width4">20dp</dimen>
-
+    <dimen name="main_width1">30dp</dimen>
     <!-- 注册设置-->
     <dimen name="account_set_text">18sp</dimen>
     <dimen name="account_set_text1">16sp</dimen>
@@ -137,34 +45,6 @@
     <dimen name="account_set_width2">226dp</dimen>
     <dimen name="account_set_width3">24dp</dimen>
     <dimen name="account_set_width4">340dp</dimen>
-    <!--统计-->
-    <dimen name="Statistics_btn_width">71dp</dimen>
-    <dimen name="Statistics_btn_width1">17dp</dimen>
-    <dimen name="Statistics_btn_width2">15dp</dimen>
-    <dimen name="Statistics_btn_width3">20dp</dimen>
-    <dimen name="Statistics_btn_width4">5dp</dimen>
-    <dimen name="Statistics_btn_width5">100dp</dimen>
-    <dimen name="Statistics_btn_width6">24dp</dimen>
-    <dimen name="Statistics_btn_width7">48dp</dimen>
-    <dimen name="Statistics_btn_height">36dp</dimen>
-    <dimen name="Statistics_btn_height1">28dp</dimen>
-    <dimen name="Statistics_btn_height2">15dp</dimen>
-    <dimen name="Statistics_btn_height3">36dp</dimen>
-    <dimen name="Statistics_btn_height4">14dp</dimen>
 
-    <!--表格-->
-    <dimen name="Statistics_BarChart_height">297dp</dimen>
-    <dimen name="Statistics_BarChart_text_height">27dp</dimen>
-    <dimen name="Statistics_BarChart_height1">350dp</dimen>
-    <dimen name="Statistics_BarChart_width">300dp</dimen>
-    <dimen name="Statistics_BarChart_width1">30dp</dimen>
-
-    <!--店员明细-->
-    <dimen name="clerk_info_left">15dp</dimen>
-    <dimen name="clerk_info_top">15dp</dimen>
-    <dimen name="clerk_info_width">40dp</dimen>
-    <dimen name="clerk_info_width1">60dp</dimen>
-    <dimen name="clerk_info_width2">90dp</dimen>
-    <dimen name="clerk_info_width3">120dp</dimen>
 
 </resources>

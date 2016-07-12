@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yfw.izlt.BaseActivity;
 import com.yfw.izlt.R;
 import com.yfw.izlt.common.Constants;
+import com.yfw.izlt.common.SaveDatas;
 import com.yfw.izlt.common.Toasttool;
 import com.yfw.izlt.main.model.bean.MUser;
 import com.yfw.izlt.main.presenter.LoginPresenter;
@@ -51,50 +52,6 @@ public class LoginActivity extends BaseActivity implements ILoginView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-//    private void login(){
-//        String url= Constants.LOGIN_ACCESS;
-//        //String url="http://apis.baidu.com/txapi/qiwen/qiwen";
-//        String phone=account.getText().toString();
-//        String pwd=pass.getText().toString();
-//        RequestParams params = new RequestParams(url);
-//        params.addQueryStringParameter("phone",phone);
-//        params.addQueryStringParameter("password",pwd);
-////        params.addQueryStringParameter("num","10");
-////        params.addHeader("apikey","8eadcf7e0304b7662bd79b350aaca5dd");
-//        x.http().post(params, new Callback.CommonCallback<String>() {
-//
-//            @Override
-//            public void onSuccess(String result) {
-//                //Log.i("ii","result:"+result);
-//                MUser data=null;
-//                try {
-//                    data=new ObjectMapper().readValue(result,MUser.class);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//                if(data.getResult().equals("right")){
-//                    new Toasttool().MyToast(LoginActivity.this,"成功登录");
-//                }else{
-//                    new Toasttool().MyToast(LoginActivity.this,"输入有误，请重试！");
-//                }
-//            }
-//
-//            @Override
-//            public void onError(Throwable ex, boolean isOnCallback) {
-//                Toasttool.MyToast(LoginActivity.this,"网络连接失败！");
-//            }
-//
-//            @Override
-//            public void onCancelled(CancelledException cex) {
-//
-//            }
-//
-//            @Override
-//            public void onFinished() {
-//
-//            }
-//        });
-//    }
 
     @Override
     public String getUserPhone() {
@@ -109,7 +66,11 @@ public class LoginActivity extends BaseActivity implements ILoginView{
     @Override
     public void toMainManagerActivity(MUser user) {
             if(user.getResult().equals("right")){
+                SaveDatas.getInstance(LoginActivity.this).setUserInfo("keyId",user.getKeyid());
                 new Toasttool().MyToast(x.app(),"成功登录");
+                Intent intent=new Intent(LoginActivity.this,MainPageActivity.class);
+                startActivity(intent);
+                finish();
             }else {
                 new Toasttool().MyToast(x.app(),"输入有误，请重试！");
             }
@@ -118,5 +79,16 @@ public class LoginActivity extends BaseActivity implements ILoginView{
     @Override
     public void showFailedError() {
             new Toasttool().MyToast(x.app(),"网络连接失败！");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        String keyId=SaveDatas.getInstance(LoginActivity.this).getUserInfo("keyId");
+        if(null!=keyId && !keyId.equals("")){
+            Intent intent=new Intent(LoginActivity.this,MainPageActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }

@@ -11,7 +11,7 @@
             android:id="@+id/ivBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/home_btn"
+            android:src="@drawable/home_btn"
             android:gravity="center_vertical"
             android:visibility="visible"
             android:layout_marginLeft="@dimen/activity_titleBar_leftRight"
@@ -28,5 +28,16 @@
             android:textSize="@dimen/titleBar_text"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
+        <ImageView
+            android:id="@+id/ivSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/ivBack"
+            android:layout_marginEnd="@dimen/activity_titleBar1"
+            android:layout_marginRight="@dimen/activity_titleBar_leftRight"
+            android:background="@drawable/search_btn"
+            android:gravity="center_vertical"/>
     </RelativeLayout>
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.yfw.izlt.main.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -44,6 +45,9 @@ public class RegistActivity extends BaseActivity implements IRegisterView{
     private EditText password;
     @ViewInject(R.id.editText2)
     private EditText rePassword;
+    @ViewInject(R.id.ivSearch)
+    private ImageView ivSearch;
+
     private RegisterPresenter registerPresenter=new RegisterPresenter(this);
 
     @Event(value = {R.id.ivBack,R.id.submitID})
@@ -69,74 +73,8 @@ public class RegistActivity extends BaseActivity implements IRegisterView{
     }
     private void init(){
         tvCom.setText("注册");
+        ivSearch.setVisibility(View.INVISIBLE);
     }
-    /**
-     * 注册
-     */
-    private void regist(){
-        String url= Constants.REGISTER_ACCESS;
-        String phones = phone.getText().toString().trim();
-        String passwords = password.getText().toString().trim();
-        String rePasswords = rePassword.getText().toString().trim();
-//        xUtils网络请求用法
-//        RequestParams params = new RequestParams("http://192.168.0.13:8080/upload");、、、GET
-//        // 加到url里的参数, http://xxxx/s?wd=xUtils
-//        params.addQueryStringParameter("wd", "xUtils");
-//        添加到请求body体的参数, 只有POST, PUT, PATCH, DELETE请求支持.
-//        params.addBodyParameter("wd", "xUtils");
-//        使用multipart表单上传文件
-//        params.setMultipart(true);
-//        params.addBodyParameter(
-//                "file",
-//                new File("/sdcard/test.jpg"),
-//                null); // 如果文件没有扩展名, 最好设置contentType参数.
-//        try {
-//            params.addBodyParameter(
-//                    "file2",
-//                    new FileInputStream(new File("/sdcard/test2.jpg")),
-//                    "image/jpeg",
-//                    // 测试中文文件名
-//                    "你+& \" 好.jpg"); // InputStream参数获取不到文件名, 最好设置, 除非服务端不关心这个参数.
-//        } catch (FileNotFoundException ex) {
-//            ex.printStackTrace();
-//        }
-        RequestParams params = new RequestParams(url);
-        params.addBodyParameter("userName","zlt");
-        params.addBodyParameter("userPass",passwords);
-        params.addBodyParameter("mobile",phones);
-        x.http().post(params, new Callback.CommonCallback<String>() {
-
-            @Override
-            public void onSuccess(String result) {
-                Log.i("ii","result:"+result);
-                MUser data=null;
-                try {
-                    data= new ObjectMapper().readValue(result,MUser.class);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if(data.getResult().equals("right")){
-                    new Toasttool().MyToast(RegistActivity.this,"注册成功");
-                }else {
-                    new Toasttool().MyToast(RegistActivity.this,"注册失败");
-                }
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-                new Toasttool().MyToast(RegistActivity.this,"网络连接失败");
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-            }
-
-            @Override
-            public void onFinished() {
-            }
-        });
-    }
-
     @Override
     public String getUserPhone() {
         return phone.getText().toString();
@@ -157,6 +95,9 @@ public class RegistActivity extends BaseActivity implements IRegisterView{
             if(user.getResult().equals("right")){
 
                 new Toasttool().MyToast(x.app(),"注册成功");
+                Intent intent=new Intent(RegistActivity.this,MainPageActivity.class);
+                startActivity(intent);
+                finish();
             }else {
                 new Toasttool().MyToast(x.app(),"手机号已注册");
             }

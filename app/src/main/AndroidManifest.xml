@@ -25,7 +25,8 @@
         <activity
             android:name=".main.view.activity.RegistActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-        <activity android:name=".main.view.activity.MainPageActivity"></activity>
+        <activity android:name=".main.view.activity.MainPageActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>
