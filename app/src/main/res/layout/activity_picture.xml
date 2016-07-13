@@ -62,8 +62,8 @@
                     android:text="分类"
                     android:gravity="center"/>
             </RadioGroup>
-            <FrameLayout
-                android:id="@+id/include"
+            <com.yfw.izlt.picture.view.view.CustomViewPager
+                android:id="@+id/viewPage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
