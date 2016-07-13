@@ -22,19 +22,19 @@ import com.nineoldandroids.view.ViewHelper;
 import com.yfw.izlt.BaseActivity;
 import com.yfw.izlt.R;
 import com.yfw.izlt.common.SaveDatas;
+import com.yfw.izlt.common.Toasttool;
 import com.yfw.izlt.common.Utils;
 import com.yfw.izlt.main.view.fragment.ClassFragment;
 import com.yfw.izlt.main.view.fragment.FindFragment;
 import com.yfw.izlt.main.view.fragment.HomeFragment;
 import com.yfw.izlt.main.view.view.DragLayout;
 import com.yfw.izlt.main.view.view.MyLinearLayout;
+import com.yfw.izlt.news.view.activity.NewsActivity;
+import com.yfw.izlt.picture.view.PictureActivity;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @ContentView(R.layout.activity_main_page)
 public class MainPageActivity extends BaseActivity implements View.OnClickListener,AdapterView.OnItemClickListener{
@@ -121,6 +121,8 @@ public class MainPageActivity extends BaseActivity implements View.OnClickListen
             }
         });
         mLeftList.setOnItemClickListener(this);
+        //首页
+        mHomeFragment();
     }
 
     /**  隐藏所有的fragment*/
@@ -201,13 +203,18 @@ public class MainPageActivity extends BaseActivity implements View.OnClickListen
         String data=  mLeftList.getItemAtPosition(i).toString();
         Log.i("ii","data:"+data+":::"+i);
         switch (i){
-            case 0:
+            case 0://新闻
+                startActivity(new Intent(x.app(), NewsActivity.class));
                 break;
-            case 1:
+            case 1://图片
+                startActivity(new Intent(x.app(), PictureActivity.class));
                 break;
-            case 2://注销
+            case 2:
+                break;
+            case 3://注销
                 SaveDatas.getInstance(x.app()).delete("keyId");
                 startActivity(new Intent(MainPageActivity.this,LoginActivity.class));
+                new Toasttool().MyToast(x.app(),"注销成功");
                 finish();
                 break;
             default:
