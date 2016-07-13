@@ -4,10 +4,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.yfw.izlt.picture.view.PictureActivity">
-    <include
-        layout="@layout/include_common"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent" />
+    tools:context=".picture.view.activity.PictureActivity">
+    <!-- 使用自定义的侧滑组件，orientation必须为水平方向 -->
+    <com.yfw.izlt.picture.view.view.SlidingLayout
+        android:id="@+id/slidingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <!-- 左侧菜单 -->
+        <LinearLayout
+            android:id="@+id/leftContent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#00ccff"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@color/red"></LinearLayout>
+            <ListView
+                android:id="@+id/menulist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/menus" />
+        </LinearLayout>
+
+        <!-- 右侧主体 -->
+        <LinearLayout
+            android:id="@+id/rightContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <include
+                layout="@layout/include_common"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
+            <RadioGroup
+                android:background="@color/blue"
+                android:id="@+id/main_tab_group"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal"
+                android:paddingTop="0.0dip" >
+
+                <RadioButton
+                    android:id="@+id/btnTRecommendID"
+                    style="@style/MyTabButton"
+                    android:checked="true"
+                    android:text="推荐"
+                    android:gravity="center"
+                    />
+
+                <RadioButton
+                    android:id="@+id/btnTClassID"
+                    style="@style/MyTabButton"
+                    android:text="分类"
+                    android:gravity="center"/>
+            </RadioGroup>
+            <FrameLayout
+                android:id="@+id/include"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </com.yfw.izlt.picture.view.view.SlidingLayout>
+
 
 </LinearLayout>

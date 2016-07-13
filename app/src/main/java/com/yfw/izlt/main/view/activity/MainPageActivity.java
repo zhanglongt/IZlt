@@ -24,20 +24,21 @@ import com.yfw.izlt.R;
 import com.yfw.izlt.common.SaveDatas;
 import com.yfw.izlt.common.Toasttool;
 import com.yfw.izlt.common.Utils;
+import com.yfw.izlt.main.view.Interface.ISwitchMFragment;
 import com.yfw.izlt.main.view.fragment.ClassFragment;
 import com.yfw.izlt.main.view.fragment.FindFragment;
 import com.yfw.izlt.main.view.fragment.HomeFragment;
 import com.yfw.izlt.main.view.view.DragLayout;
 import com.yfw.izlt.main.view.view.MyLinearLayout;
 import com.yfw.izlt.news.view.activity.NewsActivity;
-import com.yfw.izlt.picture.view.PictureActivity;
+import com.yfw.izlt.picture.view.activity.PictureActivity;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 @ContentView(R.layout.activity_main_page)
-public class MainPageActivity extends BaseActivity implements View.OnClickListener,AdapterView.OnItemClickListener{
+public class MainPageActivity extends BaseActivity implements View.OnClickListener,AdapterView.OnItemClickListener,ISwitchMFragment{
     //左侧资源
     private String leftArr[];
     @ViewInject(R.id.lv_left)
@@ -138,7 +139,8 @@ public class MainPageActivity extends BaseActivity implements View.OnClickListen
         }
     }
     /** 设置开启的tab首页页面 */
-    private void mHomeFragment(){
+    @Override
+    public void mHomeFragment(){
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         hideFragment(transaction);
         if(homeFragment==null){
@@ -152,7 +154,8 @@ public class MainPageActivity extends BaseActivity implements View.OnClickListen
 
     }
     /** 设置开启的tab分类页面 */
-    private void mClassFragment(){
+    @Override
+    public void mClassFragment(){
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         hideFragment(transaction);
         if(classFragment==null){
@@ -165,7 +168,8 @@ public class MainPageActivity extends BaseActivity implements View.OnClickListen
 
     }
     /** 设置开启的tab发现页面 */
-    private void mFindFragment(){
+    @Override
+    public void mFindFragment(){
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         hideFragment(transaction);
         if(findFragment==null){
