@@ -35,8 +35,8 @@ import java.util.List;
  */
 public class ResideMenu extends FrameLayout {
 
-    public static final int DIRECTION_LEFT = 0;
-    public static final int DIRECTION_RIGHT = 1;
+    public static final int DIRECTION_LEFT = 0;//控制左滑
+    public static final int DIRECTION_RIGHT = 1;//控制右滑
     private static final int PRESSED_MOVE_HORIZONTAL = 2;
     private static final int PRESSED_DOWN = 3;
     private static final int PRESSED_DONE = 4;
