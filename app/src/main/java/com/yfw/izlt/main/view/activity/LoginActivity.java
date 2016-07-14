@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yfw.izlt.BaseActivity;
 import com.yfw.izlt.R;
 import com.yfw.izlt.common.Constants;
+import com.yfw.izlt.common.IApplication;
 import com.yfw.izlt.common.SaveDatas;
 import com.yfw.izlt.common.Toasttool;
 import com.yfw.izlt.main.model.bean.MUser;
@@ -47,10 +48,12 @@ public class LoginActivity extends BaseActivity implements ILoginView{
                break;
        }
     }
+    private IApplication iApplication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        iApplication= (IApplication) getApplicationContext();
     }
 
     @Override
@@ -66,7 +69,8 @@ public class LoginActivity extends BaseActivity implements ILoginView{
     @Override
     public void toMainManagerActivity(MUser user) {
             if(user.getResult().equals("right")){
-                SaveDatas.getInstance(LoginActivity.this).setUserInfo("keyId",user.getKeyid());
+               // SaveDatas.getInstance(LoginActivity.this).setUserInfo("keyId",user.getKeyid());
+                iApplication.setLoginKey(user.getKeyid());
                 new Toasttool().MyToast(x.app(),"成功登录");
                 Intent intent=new Intent(LoginActivity.this,MainPageActivity.class);
                 startActivity(intent);
@@ -84,7 +88,8 @@ public class LoginActivity extends BaseActivity implements ILoginView{
     @Override
     protected void onStart() {
         super.onStart();
-        String keyId=SaveDatas.getInstance(LoginActivity.this).getUserInfo("keyId");
+        //String keyId=SaveDatas.getInstance(LoginActivity.this).getUserInfo("keyId");
+        String keyId=iApplication.getLoginKey();
         if(null!=keyId && !keyId.equals("")){
             Intent intent=new Intent(LoginActivity.this,MainPageActivity.class);
             startActivity(intent);

@@ -21,6 +21,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.view.ViewHelper;
 import com.yfw.izlt.BaseActivity;
 import com.yfw.izlt.R;
+import com.yfw.izlt.common.IApplication;
 import com.yfw.izlt.common.SaveDatas;
 import com.yfw.izlt.common.Toasttool;
 import com.yfw.izlt.common.Utils;
@@ -68,12 +69,14 @@ public class MainPageActivity extends BaseActivity implements View.OnClickListen
 
     /** 对Fragment进行管理  */
     private FragmentManager fragmentManager;
+    private IApplication iApplication;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main_page);
+        iApplication= (IApplication) getApplicationContext();
         fragmentManager=getSupportFragmentManager();
         mHeaderImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -216,7 +219,8 @@ public class MainPageActivity extends BaseActivity implements View.OnClickListen
             case 2:
                 break;
             case 3://注销
-                SaveDatas.getInstance(x.app()).delete("keyId");
+                //SaveDatas.getInstance(x.app()).delete("keyId");
+                iApplication.setLoginKey("");
                 startActivity(new Intent(MainPageActivity.this,LoginActivity.class));
                 new Toasttool().MyToast(x.app(),"注销成功");
                 finish();
