@@ -99,8 +99,6 @@ public class PictureActivity extends BaseActivity implements View.OnClickListene
                 .crossFade()
                 .into(avatar);
 
-
-
     }
 
     @Override

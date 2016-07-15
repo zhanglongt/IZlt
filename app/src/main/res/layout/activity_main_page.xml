@@ -113,6 +113,11 @@
                 style="@style/MyTabButton"
                 android:text="发现"
                 android:gravity="center"/>
+            <RadioButton
+                android:id="@+id/btnBookID"
+                style="@style/MyTabButton"
+                android:text="通讯录"
+                android:gravity="center"/>
         </RadioGroup>
     </com.yfw.izlt.main.view.view.MyLinearLayout>
 

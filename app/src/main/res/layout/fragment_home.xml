@@ -5,10 +5,9 @@
     tools:context="com.yfw.izlt.main.view.fragment.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/test"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="homefragment" />
+   <ListView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:entries="@array/menus"></ListView>
 
 </FrameLayout>

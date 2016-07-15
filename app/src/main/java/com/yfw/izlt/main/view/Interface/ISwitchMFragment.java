@@ -7,4 +7,5 @@ public interface ISwitchMFragment {
     void mHomeFragment();
     void mClassFragment();
     void mFindFragment();
+    void mBookFragment();
 }

@@ -26,6 +26,7 @@ import com.yfw.izlt.common.SaveDatas;
 import com.yfw.izlt.common.Toasttool;
 import com.yfw.izlt.common.Utils;
 import com.yfw.izlt.main.view.Interface.ISwitchMFragment;
+import com.yfw.izlt.main.view.fragment.BookFragment;
 import com.yfw.izlt.main.view.fragment.ClassFragment;
 import com.yfw.izlt.main.view.fragment.FindFragment;
 import com.yfw.izlt.main.view.fragment.HomeFragment;
@@ -58,14 +59,17 @@ public class MainPageActivity extends BaseActivity implements View.OnClickListen
     private HomeFragment homeFragment;
     private ClassFragment classFragment;
     private FindFragment findFragment;
+    private BookFragment bookFragment;
 
-    /**  定义首页、分类、发现 的Tab图标 */
+    /**  定义首页、分类、发现 通讯录的Tab图标 */
     @ViewInject(R.id.btnHomeID)
     private RadioButton btnHomeID;
     @ViewInject(R.id.btnClassID)
     private RadioButton btnClassID;
     @ViewInject(R.id.btnFindID)
     private RadioButton btnFindID;
+    @ViewInject(R.id.btnBookID)
+    private RadioButton btnBookID;
 
     /** 对Fragment进行管理  */
     private FragmentManager fragmentManager;
@@ -112,6 +116,7 @@ public class MainPageActivity extends BaseActivity implements View.OnClickListen
         btnHomeID.setOnClickListener(this);
         btnClassID.setOnClickListener(this);
         btnFindID.setOnClickListener(this);
+        btnBookID.setOnClickListener(this);
 
         //左侧设置
         leftArr=getResources().getStringArray(R.array.menus);
@@ -139,6 +144,9 @@ public class MainPageActivity extends BaseActivity implements View.OnClickListen
         }
         if(findFragment !=null){
             transaction.hide(findFragment);
+        }
+        if(bookFragment !=null){
+            transaction.hide(bookFragment);
         }
     }
     /** 设置开启的tab首页页面 */
@@ -184,6 +192,19 @@ public class MainPageActivity extends BaseActivity implements View.OnClickListen
         transaction.commitAllowingStateLoss();
 
     }
+    /** 设置开启的tab通讯录页面 */
+    @Override
+    public void mBookFragment() {
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        hideFragment(transaction);
+        if(bookFragment==null){
+            bookFragment=new BookFragment();
+            transaction.add(R.id.include,bookFragment);
+        }else {
+            transaction.show(bookFragment);
+        }
+        transaction.commitAllowingStateLoss();
+    }
 
     @Override
     public void onClick(View view) {
@@ -200,7 +221,13 @@ public class MainPageActivity extends BaseActivity implements View.OnClickListen
                 mFindFragment();
                 mainTitle.setText("发现");
                 break;
+            case R.id.btnBookID:
+                mBookFragment();
+                mainTitle.setText("通讯录");
+                break;
             default:
+                mHomeFragment();
+                mainTitle.setText("首页");
                 break;
         }
     }

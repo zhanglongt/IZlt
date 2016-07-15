@@ -19,11 +19,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void init(View view) {
-        view.findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i("ii","testtest");
-            }
-        });
+
     }
 }
