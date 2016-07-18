@@ -26,7 +26,7 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class AvatarImageView extends ImageView {
+public class AvatarImageView extends ImageView {//头像view
 
     public static final int[] COLORS = {0xff44bb66,
                                         0xff55ccdd,

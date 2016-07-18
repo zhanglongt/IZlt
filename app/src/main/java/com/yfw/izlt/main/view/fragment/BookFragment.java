@@ -31,7 +31,7 @@ import java.util.Collections;
 /**
  * Created by zlt on 2016/7/15.
  */
-public class BookFragment extends Fragment {
+public class BookFragment extends Fragment {//索引
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_book, container, false);

@@ -28,10 +28,13 @@
         <activity
             android:name=".main.view.activity.MainPageActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".picture.view.activity.PictureActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".news.view.activity.NewsActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name=".picture.view.activity.PictureActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".news.view.activity.NewsActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".picture.view.activity.SlideDeleteActivity"></activity>
     </application>
 
 </manifest>

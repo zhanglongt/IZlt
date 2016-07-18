@@ -12,7 +12,7 @@
        android:layout_width="30dp"
        android:layout_height="match_parent"
        android:layout_alignParentRight="true"
-       android:background="#ff0000"/>
+       android:background="@color/red"/>
    <TextView
        android:id="@+id/tv_center"
        android:layout_width="160dp"
@@ -21,7 +21,7 @@
        android:gravity="center"
        android:textSize="32sp"
        android:visibility="gone"
-       android:textColor="#ffffff"
+       android:textColor="@color/white"
        android:layout_centerInParent="true"
        android:text="A" />
 </RelativeLayout>

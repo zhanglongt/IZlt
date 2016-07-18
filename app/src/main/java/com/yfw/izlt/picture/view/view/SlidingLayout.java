@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 
-public class SlidingLayout extends LinearLayout implements OnTouchListener {
+public class SlidingLayout extends LinearLayout implements OnTouchListener {//侧滑
 
 	/**
 	 * 滚动显示和隐藏左侧布局时，手指滑动需要达到的速度。

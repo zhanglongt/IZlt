@@ -9,6 +9,30 @@
     <color name="white">#ffffff</color>
     <color name="white1">#c7cccb</color>
     <color name="blue">#41a4e6</color>
-    <color name="gray">#505e70</color>
+
     <color name="red">#FF4081</color>
+
+
+    <color name="dark_gray">#ff838486</color>
+    <color name="green1">#29d177</color>
+    <color name="green2">#23ac6d</color>
+    <color name="orange">#ffff9600</color>
+    <color name="dark_gray_text">#8d98ac</color>
+    <color name="dark1">#6b7381</color>
+    <color name="dark2">#666666</color>
+    <color name="gray">#e2e2e2</color>
+    <color name="gray1">#ebf0f1</color>
+    <color name="gray2">#546a78</color>
+    <color name="gray3">#606063</color>
+    <color name="gray4">#989d9c</color>
+    <color name="gray5">#aeb3b2</color>
+    <color name="gray6">#545a66</color>
+    <color name="gray7">#505e70</color>
+    <color name="white2">#ecf1f0</color>
+    <color name="window">#3a3a3a</color>
+    <color name="gray_white">#e9eeef</color>
+    <color name="blue1">#525e69</color>
+    <color name="gray8">#595f61</color>
+    <color name="transparent">#00000000</color>
+    <color name="barChart">#4cabe8</color>
 </resources>

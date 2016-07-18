@@ -47,7 +47,7 @@
                 android:id="@+id/menulist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:entries="@array/menus" />
+                android:entries="@array/menus_picture" />
         </LinearLayout>
 
         <!-- 右侧主体 -->

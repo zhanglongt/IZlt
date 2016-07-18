@@ -8,7 +8,9 @@ import android.support.v4.view.ViewPager;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.yfw.izlt.BaseActivity;
 import com.yfw.izlt.R;
 import com.yfw.izlt.common.SaveDatas;
+import com.yfw.izlt.common.Toasttool;
 import com.yfw.izlt.main.model.bean.MUser;
 import com.yfw.izlt.picture.util.ImageUtils;
 import com.yfw.izlt.picture.view.adapter.MPageAdapter;
@@ -66,6 +69,8 @@ public class PictureActivity extends BaseActivity implements View.OnClickListene
     private AvatarImageView avatar;
 //    @ViewInject(R.id.llChange)
 //    private LinearLayout avatarChange;
+    @ViewInject(R.id.menulist)
+    private ListView mList;
     @Event(R.id.llChange)
     private void changeClick(View view){
         ImageUtils.showImagePickDialog(PictureActivity.this);
@@ -98,6 +103,17 @@ public class PictureActivity extends BaseActivity implements View.OnClickListene
                 .centerCrop()
                 .crossFade()
                 .into(avatar);
+
+        mList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.i("dd","i:"+i);
+                Toasttool.MyToast(x.app(),"i"+i);
+                if(i==0){//側拉删除 侧拉
+                    startActivity(new Intent(x.app(),SlideDeleteActivity.class));
+                }
+            }
+        });
 
     }
 

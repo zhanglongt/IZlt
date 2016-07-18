@@ -8,7 +8,7 @@ import android.view.MotionEvent;
 /**
  * Created by zlt on 2016/5/19.
  */
-public class CustomViewPager extends ViewPager {
+public class CustomViewPager extends ViewPager {//侧滑
     private boolean enabled;
     public CustomViewPager(Context context) {
         this(context,null);
