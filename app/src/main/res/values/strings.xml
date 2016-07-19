@@ -11,10 +11,11 @@
     </string-array>
     <string-array name="menus_picture">
         <item>側拉删除</item>
-        <item>图片</item>
+        <item>仿购物点击效果</item>
         <item>收藏</item>
         <item>注销</item>
     </string-array>
     <string name="call">Call</string>
     <string name="delete">Delete</string>
+    <string name="title_activity_testaaa">Testaaa</string>
 </resources>

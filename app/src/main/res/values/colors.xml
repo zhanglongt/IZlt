@@ -35,4 +35,8 @@
     <color name="gray8">#595f61</color>
     <color name="transparent">#00000000</color>
     <color name="barChart">#4cabe8</color>
+    <!-- fragment_tclass.xml-->
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="sv_blue">#688fdb</color>
 </resources>

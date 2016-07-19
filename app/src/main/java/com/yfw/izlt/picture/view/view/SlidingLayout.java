@@ -360,6 +360,4 @@ public class SlidingLayout extends LinearLayout implements OnTouchListener {//ä¾
 			e.printStackTrace();
 		}
 	}
-
-
 }

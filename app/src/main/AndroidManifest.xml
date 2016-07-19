@@ -34,7 +34,8 @@
         <activity
             android:name=".news.view.activity.NewsActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".picture.view.activity.SlideDeleteActivity"></activity>
+        <activity android:name=".picture.view.activity.SlideDeleteActivity" />
+        <activity android:name=".picture.view.activity.IShoppingActivity" />
     </application>
 
 </manifest>

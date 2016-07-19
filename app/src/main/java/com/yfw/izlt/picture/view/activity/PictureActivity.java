@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -86,7 +87,6 @@ public class PictureActivity extends BaseActivity implements View.OnClickListene
         customViewPager.setAdapter(new MPageAdapter(fragmentManager));
         customViewPager.setCurrentItem(0);
         customViewPager.setOnPageChangeListener(this);
-
         btnTRecommendID.setOnClickListener(this);
         btnTClassID.setOnClickListener(this);
 
@@ -111,6 +111,8 @@ public class PictureActivity extends BaseActivity implements View.OnClickListene
                 Toasttool.MyToast(x.app(),"i"+i);
                 if(i==0){//側拉删除 侧拉
                     startActivity(new Intent(x.app(),SlideDeleteActivity.class));
+                }else if(i==1){//仿购物点击效果
+                    startActivity(new Intent(x.app(),IShoppingActivity.class));
                 }
             }
         });
@@ -202,4 +204,5 @@ public class PictureActivity extends BaseActivity implements View.OnClickListene
                 break;
         }
     }
+
 }
